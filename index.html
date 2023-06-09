@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/style.css">
+	<title>Document</title>
+</head>
+<body>
+	<div class="container">
+		<h1>Todo List</h1>
+		<form name="todo" action="#">
+			<input placeholder="Add a task..." name="task" type="text">
+			<button type="submit">Add</button>
+		</form>
+		<div class="divider"></div>
+		<div class="todo-box">
+
+		</div>
+	</div>
+	<div class="modal-bg">
+		<div class="modal">
+			<form name="change" action="#">
+				<h3>Change Task</h3>
+				<input type="text" placeholder="change your task">
+				<div class="btn">
+					<button type="submit" class="save">Save</button>
+					<button type="reset" class="close">Cancel</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	
+	<script src="./js/script.js"></script>
+</body>
+</html>
