@@ -6,7 +6,7 @@ const change_input = change_form.querySelector("input")
 const modal = document.querySelector(".modal-bg")
 const close_btn = document.querySelector(".close")
 let todos = []
-
+let globalId
 form.onsubmit = (event) => {
 	event.preventDefault()
 	const currentDate = new Date();
@@ -92,26 +92,38 @@ function reload(arr) {
 			}
 		}
 
+
+
+
+	
+
+		
 		change_btn.onclick = () => {
 			modal.style.display = "flex"
 			change_input.value = item.task
+			globalId = item.id
+
 		}
 		close_btn.onclick = () => {
 			close()
 		}
-		change_form.onsubmit = (event) => {
-			event.preventDefault()
-			item.task = change_input.value
-			close()
-		}
-
-		function close() {
-			change_form.classList.add("close-anim")
-			setTimeout(() => {
-				modal.style.display = "none"
-				change_form.classList.remove("close-anim")
-			}, 500);
-			reload(todos)
-		}
+		
 	}
+}
+function close() {
+	change_form.classList.add("close-anim")
+	setTimeout(() => {
+		modal.style.display = "none"
+		change_form.classList.remove("close-anim")
+	}, 500);
+	reload(todos)
+	change_input.value = ""
+}
+
+change_form.onsubmit = (event) => {
+	event.preventDefault()
+	let finded = todos.forEach(el => el.id === globalId)
+	console.log(finded);
+	//finded.task = change_input.value
+	close()
 }
